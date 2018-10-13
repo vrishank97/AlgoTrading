@@ -17,5 +17,5 @@ Python Implementations of popular Algorithmic Trading Strategies
 13. Six-Month Cycle MACD
 14. Slope Performance Trend
 15. Swing Charting
-16. Stochastic Pop and Drop
+16. Stochastic Pop and Drop (Done)
 17. Trend Quantification and Asset Allocation
