@@ -1,20 +1,10 @@
-import pandas as pd
+from BaseAgent import BaseAgent
 import numpy as np
 from time import time
 
-class CCI_Agent:
-    def __init__(self, data):
-        self.data=data
-        self.stock=1
-        self.cash=0
-        self.price=self.data["Price"][0]
-        self.prices=np.array(self.data["Price"])
-        self.value=self.stock*self.price+self.cash
-        self.up=0.1
-        self.down=0.1
-        self.length=len(data)
-        self.moving_avg=self.MovingAverages(self.prices)
-        self.portfolio=[]
+class CCI_Agent(BaseAgent):
+    def __init__(self, cash, window_size):
+        super().__init__(cash, window_size)
 
     def reset(self):
         """
@@ -23,12 +13,6 @@ class CCI_Agent:
         self.cash=0
         self.stock=1
         self.portfolio=[]
-    
-    def getPortfolioVal(self):
-        """
-        Returns current portfolio valuation
-        """
-        return self.stock*self.price+self.cash
     
     def getCCI(self, n_days):
         TP = (self.data['High'] + self.data['Low'] + self.data['Close']) / 3 
