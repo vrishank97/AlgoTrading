@@ -17,6 +17,6 @@ for stock in stocks[1:7]:
     ax.plot(np.arange(len(prices)), prices, color='orange')
 
     ax.set(xlabel='Days', ylabel='INR',
-           title='Monies')
+           title=stock)
     ax.grid()
     plt.show()
