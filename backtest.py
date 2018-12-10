@@ -10,5 +10,5 @@ class Backtest:
 			self.agent.step(price)
 			val = self.agent.getPortfolioVal(price)
 			results.append(val)
-			print("Portfolio valuation : %f" % (val))
+			#print("Portfolio valuation : %f" % (val))
 		return results

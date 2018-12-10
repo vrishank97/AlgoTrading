@@ -17,7 +17,7 @@ class SMA_Agent(BaseAgent):
         # Buy
         if(price<=np.mean(self.memory)*(1-self.down)):
             if(self.cash>price):
-                print("Buying %d stocks for %f each" % ((self.cash)//price, price))
+                #print("Buying %d stocks for %f each" % ((self.cash)//price, price))
                 self.stock += (self.cash)//price
                 self.cash -= ((self.cash)//price)*price
                 return 1
@@ -25,7 +25,7 @@ class SMA_Agent(BaseAgent):
         # Sell
         if(price>=np.mean(self.memory)*(1+self.up)):
             if(self.stock>0):
-                print("Selling %d stocks for %f each" % (self.stock, price))
+                #print("Selling %d stocks for %f each" % (self.stock, price))
                 self.cash += self.stock*price
                 self.stock =0
                 return -1

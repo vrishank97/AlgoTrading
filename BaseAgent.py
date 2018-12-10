@@ -17,4 +17,4 @@ class BaseAgent:
         self.memory = deque(maxlen=1000)
 
     def getPortfolioVal(self, price):
-        return (self.stock*price)+self.cash
+        return int((self.stock*price)+self.cash)
