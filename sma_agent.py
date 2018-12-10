@@ -11,14 +11,22 @@ class SMA_Agent(BaseAgent):
 
     def step(self, price):
         self.memory.append(price)
-        if len(self.memory)<window_size:
+        if len(self.memory)<10:
             return 0
-        if(price>=mean(self.memory)*(1+up)):
-            self.cash += self.stock*price
-            self.stock =0
-            return -1
-        if(price<=mean(self.memory)*(1-down)):
-            self.stock += (self.cash)//price
-            self.cash -= self.stock*price
-            return 1
+
+        # Buy
+        if(price<=np.mean(self.memory)*(1-self.down)):
+            if(self.cash>price):
+                print("Buying %d stocks for %f each" % ((self.cash)//price, price))
+                self.stock += (self.cash)//price
+                self.cash -= ((self.cash)//price)*price
+                return 1
+
+        # Sell
+        if(price>=np.mean(self.memory)*(1+self.up)):
+            if(self.stock>0):
+                print("Selling %d stocks for %f each" % (self.stock, price))
+                self.cash += self.stock*price
+                self.stock =0
+                return -1
         return 0

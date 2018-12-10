@@ -16,5 +16,5 @@ class BaseAgent:
     def reset_memory(self):
         self.memory = deque(maxlen=1000)
 
-    def getPortfolioVal(self):
-        return self.stock*self.price+self.cash
+    def getPortfolioVal(self, price):
+        return (self.stock*price)+self.cash
