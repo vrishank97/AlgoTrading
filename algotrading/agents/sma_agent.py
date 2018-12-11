@@ -8,10 +8,11 @@ class SMA_Agent(BaseAgent):
         super().__init__(cash, window_size)
         self.up = up
         self.down = down
+        self.window_size = window_size
 
     def step(self, price):
         self.memory.append(price)
-        if len(self.memory)<10:
+        if len(self.memory)<self.window_size:
             return 0
 
         # Buy
