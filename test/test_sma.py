@@ -1,10 +1,12 @@
 import pandas as pd
-from backtest import Backtest
-from sma_agent import SMA_Agent
+import sys
+sys.path.append('../')
+from algotrading.backtest import Backtest
+from algotrading.agents.sma_agent import SMA_Agent
 import matplotlib.pyplot as plt
 import numpy as np
 
-prices = pd.read_csv("Historical data/DABU Historical Data.csv")["Price"]
+prices = pd.read_csv("../Historical data/DABU Historical Data.csv")["Price"]
 
 agent = SMA_Agent(10000, 10, 0.015, 0.015)
 
