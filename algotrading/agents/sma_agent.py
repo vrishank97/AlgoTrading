@@ -1,4 +1,4 @@
-from BaseAgent import BaseAgent
+from .BaseAgent import BaseAgent
 import pandas as pd
 import numpy as np
 from time import time
