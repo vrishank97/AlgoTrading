@@ -15,7 +15,7 @@ test = Backtest(agent)
 output = test.run(prices)
 
 fig, ax = plt.subplots()
-ax.plot(np.arange(len(prices)), output, color='green')
+ax.plot(np.arange(len(prices)), output, color='red')
 ax.plot(np.arange(len(prices)), prices, color='green')
 
 ax.set(xlabel='Days', ylabel='INR',
