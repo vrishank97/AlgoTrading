@@ -8,7 +8,7 @@ Python Implementations of popular Algorithmic Trading Strategies
 4. Harmonic Patterns
 5. Ichimoku Cloud
 6. The Last Stochastic Technique
-7. Moving Momentum
+7. Moving Momentum (Done)
 8. Percent Above 50-day SMA (Done)
 9. Percent B Money Flow
 10. Pre-Holiday Effect
