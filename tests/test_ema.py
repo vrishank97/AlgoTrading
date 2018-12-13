@@ -8,7 +8,7 @@ import numpy as np
 
 prices = pd.read_csv("../Historical data/GE Historical Data.csv")["Price"]
 
-agent = EMA_Agent(10000, 10)
+agent = EMA_Agent(10000, 10, 0.05, 0.05)
 
 test = Backtest(agent)
 
