@@ -56,7 +56,7 @@ class Momentum_Agent(BaseAgent):
         memory_slice = pd.DataFrame(memory_slice)
 
         #print(price, self.running_ema_small,self.running_ema_large, self.running_ema_signal)
-
+        '''
         runnner_small = None
         runner_large = None
         runner_signal = None
@@ -80,13 +80,19 @@ class Momentum_Agent(BaseAgent):
         self.running_ema_large = (price - runner_large)*self.multiplier_large + runner_large
         macd = self.running_ema_small - self.running_ema_large
         self.running_ema_signal = (macd - runner_signal)*self.multiplier_signal + runner_signal
-
+        
+        '''
+        df_memory = pd.DataFrame(memory_slice)
+        df_macd = df_memory.ewm(span=small, adjust=False).mean() - df_memory.ewm(span=large, adjust=False).mean()
+        df_macd_hist = df_macd - df_macd.ewm(span=signal, adjust=False).mean()
+        '''
         self.macd_memory.append(macd)
 
         if(len(self.macd_memory) < self.signal_ema):
             return 0
-
-        return (self.running_ema_small - self.running_ema_large) - self.running_ema_signal
+        '''
+        #print(len(df_macd_hist))
+        return df_macd_hist[0][large - 1]
 
     def step(self, price):
         self.memory.append(price)
