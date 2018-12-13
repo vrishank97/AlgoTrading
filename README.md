@@ -8,10 +8,10 @@ Python Implementations of popular Algorithmic Trading Strategies
 4. Moving Momentum (Done)
 5. Exponential Moving Averages (Done)
 6. Double Exponential Moving Averages (Done)
-7. CVR3 VIX Market Timing
-8. Gap Trading Strategies
-9. Harmonic Patterns
-10. Ichimoku Cloud
+7. Triple Exponential Moving Averages (Done)
+8. CVR3 VIX Market Timing
+9. Gap Trading Strategies
+10. Harmonic Patterns
 11. The Last Stochastic Technique
 12. Percent B Money Flow
 13. Pre-Holiday Effect
@@ -20,4 +20,5 @@ Python Implementations of popular Algorithmic Trading Strategies
 16. Six-Month Cycle MACD
 17. Slope Performance Trend
 18. Swing Charting
-19. Trend Quantification and Asset Allocation
+19. Ichimoku Cloud
+20. Trend Quantification and Asset Allocation

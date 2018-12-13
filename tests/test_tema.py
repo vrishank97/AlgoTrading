@@ -2,13 +2,13 @@ import pandas as pd
 import sys
 sys.path.append('../')
 from algotrading.backtest import Backtest
-from algotrading.agents.dema_agent import DEMA_Agent
+from algotrading.agents.tema_agent import TEMA_Agent
 import matplotlib.pyplot as plt
 import numpy as np
 
 prices = pd.read_csv("../Historical data/GE Historical Data.csv")["Price"]
 
-agent = DEMA_Agent(10000, 10, 0.015, 0.015)
+agent = TEMA_Agent(10000, 10, 0.05, 0.05)
 
 test = Backtest(agent)
 

@@ -4,7 +4,7 @@ import numpy as np
 from time import time
 from collections import deque
 
-class DEMA_Agent(BaseAgent):
+class TEMA_Agent(BaseAgent):
     def __init__(self, cash, window_size, up, down):
         super().__init__(cash, window_size)
         self.window_size = window_size
@@ -15,6 +15,9 @@ class DEMA_Agent(BaseAgent):
         self.running_dema_memory = deque(maxlen=window_size)
         self.running_dema = 0
         self.running_dema_memory.append(0)
+        self.running_tema_memory = deque(maxlen=window_size)
+        self.running_tema = 0
+        self.running_tema_memory.append(0)
 
 
     def step(self, price):
@@ -33,14 +36,20 @@ class DEMA_Agent(BaseAgent):
         else:
             self.running_dema = (self.running_ema - self.running_dema)*self.multiplier + self.running_dema
 
-        # print("EMA: %s, EMA(EMA): %s" % (self.running_ema, self.running_dema))
-        DEMA = (2*self.running_ema) - self.running_dema
+        if len(self.running_tema_memory)<self.window_size:
+            self.running_tema = np.mean(self.running_tema_memory)
+        else:
+            self.running_tema = (self.running_dema - self.running_tema)*self.multiplier + self.running_tema
+
+        # print("EMA: %s, EMA(EMA): %s, EMA(EMA(EMA))" % (self.running_ema, self.running_dema, self.running_tema))
+        TEMA = (3*self.running_ema) - (3*self.running_dema) + self.running_tema
         self.running_dema_memory.append(self.running_ema)
+        self.running_tema_memory.append(self.running_dema)
         
 
 
         # Buy
-        if(price >= DEMA*(1-self.down)):
+        if(price >= TEMA*(1-self.down)):
             if(self.cash>price):
                 print("Buying %d stocks for %f each" % ((self.cash)//price, price))
                 #print("Buying")
@@ -49,7 +58,7 @@ class DEMA_Agent(BaseAgent):
                 return 1
 
         # Sell
-        if(price <= DEMA*(1+self.up)):
+        if(price <= TEMA*(1+self.up)):
             if(self.stock>0):
                 print("Selling %d stocks for %f each" % (self.stock, price))
                 #print("Selling")
