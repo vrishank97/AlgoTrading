@@ -6,7 +6,7 @@ from algotrading.agents.momentum_agent import Momentum_Agent
 import matplotlib.pyplot as plt
 import numpy as np
 
-prices = pd.read_csv("../Historical data/ICBK Historical Data.csv")["Price"]
+prices = pd.read_csv("../Historical data/FB Historical Data.csv")["Price"]
 
 '''
 Parameters for the Moving Momentum algorithm:
@@ -20,7 +20,7 @@ Parameters for the Moving Momentum algorithm:
 8. Signal Line (default 9)
 '''
 
-agent = Momentum_Agent(10000, 150, 20, 150, 5, 20, 80, 12, 26, 9)
+agent = Momentum_Agent(10000, 150, 20, 150, 14, 20, 80, 12, 26, 9)
 
 test = Backtest(agent)
 
@@ -28,7 +28,7 @@ output = test.run(prices)
 
 fig, ax = plt.subplots()
 ax.plot(np.arange(len(prices)), output, color='red')
-ax.plot(np.arange(len(prices)), prices, color='green')
+ax.plot(np.arange(len(prices)), prices*100, color='green')
 
 ax.set(xlabel='Days', ylabel='INR',
        title='Monies')
