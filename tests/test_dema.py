@@ -5,7 +5,7 @@ from algotrading.backtest import Backtest
 from algotrading.agents.dema_agent import DEMA_Agent
 from algotrading.evaluation import Evaluation
 
-prices = pd.read_csv("../Historical data/GE Historical Data.csv")["Price"]
+prices = pd.read_csv("../Historical data/2017/ADANIPORTS-2017.csv")["Close"]
 
 agent = DEMA_Agent(10000, 10, 0.015, 0.015)
 

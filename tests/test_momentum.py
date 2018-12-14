@@ -5,7 +5,7 @@ from algotrading.backtest import Backtest
 from algotrading.agents.momentum_agent import Momentum_Agent
 from algotrading.evaluation import Evaluation
 
-prices = pd.read_csv("../Historical data/FB Historical Data.csv")["Price"]
+prices = pd.read_csv("../Historical data/2017/ADANIPORTS-2017.csv")["Close"]
 
 '''
 Parameters for the Moving Momentum algorithm:
