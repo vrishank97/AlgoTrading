@@ -38,7 +38,8 @@ class Evaluation:
 		return (roi - RISK_FREE_RETURN)/sd
 
 	def complete_evaluation(self, price_scaling_factor=1):
-		print("\n\n\nThe Sharpe Ratio is ", self.sharpe_ratio())
+		print("Running ", self.algo)
+		print("The Sharpe Ratio is ", self.sharpe_ratio())
 		print("The return on investment is(in percentage) ", self.roi()*100)
 		self.plot_output(price_scaling_factor)
 		

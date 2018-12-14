@@ -110,14 +110,14 @@ class Momentum_Agent(BaseAgent):
 
         if(trading_bias > 0 and stoch_osc < 20 and macd_hist > 0):
             if(self.cash>price):
-                print("Buying %d stocks for %f each" % ((self.cash)//price, price))
+                #print("Buying %d stocks for %f each" % ((self.cash)//price, price))
                 self.stock += (self.cash)//price
                 self.cash -= ((self.cash)//price)*price
                 return 1
 
         if(trading_bias < 0 and stoch_osc > 80 and macd_hist < 0):
             if(self.stock>0):
-                print("Selling %d stocks for %f each" % (self.stock, price))
+                #print("Selling %d stocks for %f each" % (self.stock, price))
                 self.cash += self.stock*price
                 self.stock =0
                 return -1

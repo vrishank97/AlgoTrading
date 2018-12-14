@@ -5,9 +5,9 @@ from algotrading.backtest import Backtest
 from algotrading.agents.tema_agent import TEMA_Agent
 from algotrading.evaluation import Evaluation
 
-def main(year, stock):
+def test(year, stock):
 	filename = "../Historical Data/%s/%s-%s.csv" %(year, stock, year)
-	prices = pd.read_csv(filename)["Price"]
+	prices = pd.read_csv(filename)["Close"]
 
 	agent = TEMA_Agent(10000, 10, 0.05, 0.05)
 
@@ -20,4 +20,4 @@ def main(year, stock):
 	evaluator.complete_evaluation()
 
 if __name__ == "__main__":
-	main(sys.argv[1], sys.argv[2])
+	test(sys.argv[1], sys.argv[2])

@@ -27,7 +27,7 @@ class EMA_Agent(BaseAgent):
         # Buy
         if(price >= self.running_ema*(1-self.down)):
             if(self.cash>price):
-                print("Buying %d stocks for %f each" % ((self.cash)//price, price))
+                #print("Buying %d stocks for %f each" % ((self.cash)//price, price))
                 #print("Buying")
                 self.stock += (self.cash)//price
                 self.cash -= ((self.cash)//price)*price
@@ -36,7 +36,7 @@ class EMA_Agent(BaseAgent):
         # Sell
         if(price <= self.running_ema*(1+self.up)):
             if(self.stock>0):
-                print("Selling %d stocks for %f each" % (self.stock, price))
+                #print("Selling %d stocks for %f each" % (self.stock, price))
                 #print("Selling")
                 self.cash += self.stock*price
                 self.stock = 0

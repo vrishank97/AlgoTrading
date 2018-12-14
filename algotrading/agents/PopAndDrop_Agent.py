@@ -85,10 +85,10 @@ class PopAndDrop_Agent:
                 self.stock += stocks_to_buy
                 self.cash -= cash_required
                 if verbose:
-                    print("Day :%d, Buying %d stocks for %f" % (i, stocks_to_buy, cash_required))
+                    #print("Day :%d, Buying %d stocks for %f" % (i, stocks_to_buy, cash_required))
                     #print("Stocks owned %d" % (self.stock))
                     #print("Cash owned %f" % (self.cash))
-                    print("Portfolio valuation : %f" % (self.stock*self.price+self.cash))
+                    #print("Portfolio valuation : %f" % (self.stock*self.price+self.cash))
                 continue
             
             # sell
@@ -98,9 +98,9 @@ class PopAndDrop_Agent:
                 self.cash+=prices[i]*(self.stock)
                 self.stock=0
                 if verbose:
-                    print("Day :%d, Selling %d stocks for %f" % (i, stocks_to_sell, cash_recieved))
+                    #print("Day :%d, Selling %d stocks for %f" % (i, stocks_to_sell, cash_recieved))
                     #print("Stocks owned %d" % (self.stock))
                     #print("Cash owned %f" % (self.cash))
-                    print("Portfolio valuation : %f" % (self.stock*self.price+self.cash))
+                    #print("Portfolio valuation : %f" % (self.stock*self.price+self.cash))
                 continue
         return self.stock*self.price+self.cash

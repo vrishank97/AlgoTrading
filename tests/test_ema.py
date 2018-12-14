@@ -5,7 +5,7 @@ from algotrading.backtest import Backtest
 from algotrading.agents.ema_agent import EMA_Agent
 from algotrading.evaluation import Evaluation
 
-def main(year, stock):
+def test(year, stock):
 	filename = "../Historical Data/%s/%s-%s.csv" %(year, stock, year)
 	prices = pd.read_csv(filename)["Close"]
 
@@ -20,4 +20,4 @@ def main(year, stock):
 	evaluator.complete_evaluation()
 
 if __name__ == "__main__":
-	main(sys.argv[1], sys.argv[2])
+	test(sys.argv[1], sys.argv[2])
