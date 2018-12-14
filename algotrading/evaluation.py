@@ -29,9 +29,9 @@ class Evaluation:
 
 	def sharpe_ratio(self):
 		roi = self.roi()
-		returns = pd.DataFrame((np.array(self.output) - self.output[0])/self.output[0])
+		returns = pd.Series((np.array(self.output) - self.output[0])/self.output[0])
 
-		sd = returns.std()[0]
+		sd = returns.std()
 
 		#print(roi, sd[0])
 
