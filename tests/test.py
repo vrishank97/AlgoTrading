@@ -24,13 +24,18 @@ def run_momentum(year, stock):
 	import test_momentum
 	test_momentum.test(year, stock)
 
+def run_six_month_cycle(year, stock):
+	import test_six_month_cycle
+	test_six_month_cycle.test(year, stock)
+
 test_function = {
 				"cci" : run_cci,
 				"sma" : run_sma,
 				"ema" : run_ema,
 				"dema" : run_dema,
 				"tema" : run_tema,
-				"momentum" : run_momentum
+				"momentum" : run_momentum,
+				"sixmonthcycle" : run_six_month_cycle
 				}
 
 def all_tests(year, stock):
@@ -51,6 +56,10 @@ if __name__ == "__main__":
 
 	elif algo not in test_function:
 		raise Exception("Invalid algorithm")
+
+	elif year == "all":
+		for i in range(2000, 2018):
+			test_function[algo](str(i), stock)
 
 	else:
 		test_function[algo](year, stock)
