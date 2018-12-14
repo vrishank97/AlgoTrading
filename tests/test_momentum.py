@@ -8,6 +8,7 @@ from algotrading.evaluation import Evaluation
 def test(year, stock):
 	filename = "../Historical Data/%s/%s-%s.csv" %(year, stock, year)
 	prices = pd.read_csv(filename)["Close"]
+	dates = pd.read_csv(filename)["Date"]
 
 	'''
 	Parameters for the Moving Momentum algorithm:
@@ -28,7 +29,7 @@ def test(year, stock):
 	output = test.run(prices)
 
 	# class Evaluation takes for initialization - prices, output, name of algorithm, name of security
-	evaluator = Evaluation(prices, output, "Moving Momentum", "FB")
+	evaluator = Evaluation(prices, dates, output, "Moving Momentum", "FB")
 	evaluator.complete_evaluation()
 
 if __name__ == "__main__":

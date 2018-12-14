@@ -8,6 +8,7 @@ from algotrading.evaluation import Evaluation
 def test(year, stock):
 	filename = "../Historical Data/%s/%s-%s.csv" %(year, stock, year)
 	prices = pd.read_csv(filename)["Close"]
+	dates = pd.read_csv(filename)["Date"]
 
 	agent = CCI_Agent(1000, 25, 0.015, 0.015)
 
@@ -16,7 +17,7 @@ def test(year, stock):
 	output = test.run(prices)
 
 	# class Evaluation takes for initialization - prices, output, name of algorithm, name of security
-	evaluator = Evaluation(prices, output, "CCI", "DABU")
+	evaluator = Evaluation(prices, dates, output, "CCI", "DABU")
 	evaluator.complete_evaluation()
 
 if __name__ == "__main__":

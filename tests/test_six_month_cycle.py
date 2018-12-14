@@ -24,7 +24,7 @@ def test(year, stock):
 	output = test.run(prices, dates)
 
 	# class Evaluation takes for initialization - prices, output, name of algorithm, name of security
-	evaluator = Evaluation(prices, output, "Six Month Cycle MACD", "FB")
+	evaluator = Evaluation(prices, dates, output, "Six Month Cycle MACD", "FB")
 	evaluator.complete_evaluation()
 
 if __name__ == "__main__":
