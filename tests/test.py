@@ -40,7 +40,7 @@ def all_tests(year, stock):
 if __name__ == "__main__":
 
 	if(len(sys.argv) != 4):
-		raise StandardError("Invalid arguments")
+		raise Exception("Invalid arguments")
 
 	algo = sys.argv[1]
 	year = sys.argv[2]
@@ -50,7 +50,7 @@ if __name__ == "__main__":
 		all_tests(year, stock)
 
 	elif algo not in test_function:
-		raise StandardError("Invalid algorithm")
+		raise Exception("Invalid algorithm")
 
 	else:
 		test_function[algo](year, stock)
