@@ -3,24 +3,24 @@ import os
 import numpy as np
 
 def run_cci(year, stock, window, up, down):
-	import test_cci
-	return test_cci.test(year, stock, window, up, down, get_plots=False, verbose=False)
+	import eval_cci
+	return eval_cci.test(year, stock, window, up, down, get_plots=False, verbose=False)
 
 def run_sma(year, stock, window, up, down):
-	import test_sma
-	return test_sma.test(year, stock, window, up, down, get_plots=False, verbose=False)
+	import eval_sma
+	return eval_sma.test(year, stock, window, up, down, get_plots=False, verbose=False)
 
 def run_ema(year, stock, window, up, down):
-	import test_ema
-	return test_ema.test(year, stock, window, up, down, get_plots=False, verbose=False)
+	import eval_ema
+	return eval_ema.test(year, stock, window, up, down, get_plots=False, verbose=False)
 
 def run_dema(year, stock, window, up, down):
-	import test_dema
-	return test_dema.test(year, stock, window, up, down, get_plots=False, verbose=False)
+	import eval_dema
+	return eval_dema.test(year, stock, window, up, down, get_plots=False, verbose=False)
 
 def run_tema(year, stock, window, up, down):
-	import test_tema
-	return test_tema.test(year, stock, window, up, down, get_plots=False, verbose=False)
+	import eval_tema
+	return eval_tema.test(year, stock, window, up, down, get_plots=False, verbose=False)
 
 
 test_function = {
