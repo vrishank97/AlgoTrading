@@ -2,9 +2,9 @@ import pandas as pd
 import quandl
 import sys
 sys.path.append('../')
-from algotrading.backtest import Backtest
-from algotrading.agents.ema_agent import EMA_Agent
-from algotrading.evaluation import Evaluation
+from backtest import Backtest
+from agents.ema_agent import EMA_Agent
+from evaluation import Evaluation
 
 def test(year, stock, window=10, up=0.05, down=0.05, get_plots=True, verbose=True):
 	quandl.ApiConfig.api_key = "FDEDsMbK1E2t_PMf7X3M"

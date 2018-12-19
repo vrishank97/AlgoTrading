@@ -1,8 +1,8 @@
 import pandas as pd
 import sys
 sys.path.append('../')
-from algotrading.backtest import Backtest
-from algotrading.agents.sma_agent import SMA_Agent
+from backtest import Backtest
+from agents.sma_agent import SMA_Agent
 #import matplotlib
 #matplotlib.use("Tkagg")
 import matplotlib.pyplot as plt

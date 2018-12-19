@@ -1,9 +1,9 @@
 import pandas as pd
 import sys
 sys.path.append('../')
-from algotrading.backtest import Backtest
-from algotrading.agents.tema_agent import TEMA_Agent
-from algotrading.evaluation import Evaluation
+from backtest import Backtest
+from agents.tema_agent import TEMA_Agent
+from evaluation import Evaluation
 
 def test(year, stock, window=10, up=0.05, down=0.05, get_plots=True, verbose=True):
 	filename = "../Historical Data/%s/%s-%s.csv" %(year, stock, year)
